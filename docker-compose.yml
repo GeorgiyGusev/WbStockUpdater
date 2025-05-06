@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  stock-updater:
+    build: .
+    container_name: stock-updater
+    restart: always
