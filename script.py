@@ -1,10 +1,14 @@
 import logging
+import os
 
 import requests
 import time
 
+# Токен кабинета wildberies
+token = os.getenv("WB_API_TOKEN")
+# ID скалада FBS
+warehouse_id = os.getenv("WB_WAREHOUSE_ID")
 
-token = "eyJhbGciOiJFUzI1NiIsImtpZCI6IjIwMjUwNDE3djEiLCJ0eXAiOiJKV1QifQ.eyJlbnQiOjEsImV4cCI6MTc2MjI0NTEwMiwiaWQiOiIwMTk2YTIyNS1iNTAzLTc0NjgtYjUwYS03NjRiYjYzMjQ4MDgiLCJpaWQiOjIyMDA0MTAyLCJvaWQiOjEyNzE2NTYsInMiOjE4LCJzaWQiOiI4YWViMGFlMC02YmVmLTQ0OGEtOTFhYy1hMTcxYjc0NzU5ZDkiLCJ0IjpmYWxzZSwidWlkIjoyMjAwNDEwMn0.Ukt23ZmiKPDjTxB3QJr5cM78cpYVq967n32UsSUc61W7oIoJ0jD4AYMOy7K81G3SViHIuof2lmml34Cfzq0esg"
 headers = {
     "Authorization": f"{token}",
     "Content-Type": "application/json"
@@ -18,7 +22,7 @@ blocked_skus = ['2037761819099', '2037994608705', '2039385842859', '203938799343
 
 class Endpoints:
     GetAllCards = "https://content-api.wildberries.ru/content/v2/get/cards/list"
-    SmolenskWarehouseStocks = "https://marketplace-api.wildberries.ru/api/v3/stocks/736243"
+    SmolenskWarehouseStocks = f"https://marketplace-api.wildberries.ru/api/v3/stocks/{warehouse_id}"
 
 
 def main():
